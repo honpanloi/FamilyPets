@@ -22,26 +22,26 @@ public class Request {
 	private int request_id;
 	
 	@ManyToOne
-	@JoinColumn(name="buyer_id")
+	@JoinColumn(name="buyer_id", nullable = false)
 	private Person buyer_id;
 	
 	@ManyToOne
 	@JoinColumn(name ="breeder_id")
 	private Person breeder_id;
 	
-	@Column(name="dateIssued")
+	@Column(name="dateIssued", nullable = false)
 	private Date dateIssued;	
 	
 	@Column(name ="dateAccepted")
 	private Date dateAccepted;
 	
-	@Column(name="requestStatus")
+	@Column(name="requestStatus", nullable = false)
 	private String requestStatus;
 
 	@Column(name="animal", nullable = false)
 	private String animal;
 	
-	@Column(name="breed")
+	@Column(name="breed", nullable = false)
 	private String breed;
 	
 	@Column(name="photoLink", nullable = true)

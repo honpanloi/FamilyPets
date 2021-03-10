@@ -19,30 +19,30 @@ public class Person {
     @SequenceGenerator(allocationSize = 1, name = "person_id_seq", sequenceName = "person_id_seq")
 	private int person_id;
 	
-	@Column(name = "email")
+	@Column(name = "email", nullable = false)
 	private String email;
 	
-	@Column(name = "firstName")
+	@Column(name = "firstName", nullable = false)
 	private String firstName;
 	
-	@Column(name = "lastName")
+	@Column(name = "lastName", nullable = false)
 	private String lastName;
 	
-	@Column(name = "isBreeder")
+	@Column(name = "isBreeder", nullable = false)
 	private boolean isBreeder;
 	
-	@Column(name="dateOfBirth")
+	@Column(name="dateOfBirth", nullable = false)
 	private Date dob;
 	
-	@Column(name = "phoneNumber")
+	@Column(name = "phoneNumber", nullable = false)
 	private long phoneNumber;
 	
-	@Column(name ="city")
+	@Column(name ="city", nullable = false)
 	private String city;
 
 	public Person() {
 		super();
-		// TODO Auto-generated constructor stub
+	
 	}
 
 	public Person(int person_id, String email, String firstName, String lastName, boolean isBreeder, Date dob,
