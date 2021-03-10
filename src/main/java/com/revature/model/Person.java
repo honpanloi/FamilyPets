@@ -11,7 +11,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "person")
+@Table(name = "person", schema = "familypets")
 public class Person {
 
 	@Id
