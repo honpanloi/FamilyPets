@@ -15,7 +15,7 @@ public class PersonLogin {
 @Column
 private String email;
 	
-@Column(name = "password")
+@Column(name = "password", nullable = false)
 private String password;
 
 @OneToOne
