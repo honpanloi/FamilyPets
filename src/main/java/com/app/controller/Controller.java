@@ -2,6 +2,7 @@ package com.app.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,11 @@ import com.app.service.RequestService;
 public class Controller {
 	
 	private RequestService requestService;
+	
+	@Autowired
+	public void setRequestService(RequestService requestService) {
+		this.requestService = requestService;
+	}
 	
 	@GetMapping(path="/request/pendingBuyer", produces = {MediaType.APPLICATION_JSON_VALUE})
 	public List<Request> findAllByBuyer_id(Integer buyer_id){
