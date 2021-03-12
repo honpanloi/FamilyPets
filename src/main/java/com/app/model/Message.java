@@ -1,4 +1,4 @@
-package com.revature.model;
+package com.app.model;
 
 import java.sql.Date;
 

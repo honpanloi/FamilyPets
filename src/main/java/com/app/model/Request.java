@@ -1,4 +1,4 @@
-package com.revature.model;
+package com.app.model;
 
 import java.sql.Date;
 
@@ -29,14 +29,14 @@ public class Request {
 	@JoinColumn(name ="breeder_id")
 	private Person breeder_id;
 	
-	@Column(name="dateIssued", nullable = false)
-	private Date dateIssued;	
+	@Column(name="date_issued", nullable = false)
+	private Date date_issued;	
 	
-	@Column(name ="dateAccepted")
-	private Date dateAccepted;
+	@Column(name ="date_accepted")
+	private Date date_accepted;
 	
-	@Column(name="requestStatus", nullable = false)
-	private String requestStatus;
+	@Column(name="request_status", nullable = false)
+	private String request_status;
 
 	@Column(name="animal", nullable = false)
 	private String animal;
@@ -44,26 +44,26 @@ public class Request {
 	@Column(name="breed", nullable = false)
 	private String breed;
 	
-	@Column(name="photoLink", nullable = true)
-	private String photoLink;
+	@Column(name="photo_link", nullable = true)
+	private String photo_link;
 
 	public Request() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Request(int request_id, Person buyer_id, Person breeder_id, Date dateIssued, Date dateAccepted,
-			String requestStatus, String animal, String breed, String photoLink) {
+	public Request(int request_id, Person buyer_id, Person breeder_id, Date date_issued, Date date_accepted,
+			String request_status, String animal, String breed, String photo_link) {
 		super();
 		this.request_id = request_id;
 		this.buyer_id = buyer_id;
 		this.breeder_id = breeder_id;
-		this.dateIssued = dateIssued;
-		this.dateAccepted = dateAccepted;
-		this.requestStatus = requestStatus;
+		this.date_issued = date_issued;
+		this.date_accepted = date_accepted;
+		this.request_status = request_status;
 		this.animal = animal;
 		this.breed = breed;
-		this.photoLink = photoLink;
+		this.photo_link = photo_link;
 	}
 
 	public int getRequest_id() {
@@ -90,28 +90,28 @@ public class Request {
 		this.breeder_id = breeder_id;
 	}
 
-	public Date getDateIssued() {
-		return dateIssued;
+	public Date getdate_issued() {
+		return date_issued;
 	}
 
-	public void setDateIssued(Date dateIssued) {
-		this.dateIssued = dateIssued;
+	public void setdate_issued(Date date_issued) {
+		this.date_issued = date_issued;
 	}
 
-	public Date getDateAccepted() {
-		return dateAccepted;
+	public Date getdate_accepted() {
+		return date_accepted;
 	}
 
-	public void setDateAccepted(Date dateAccepted) {
-		this.dateAccepted = dateAccepted;
+	public void setdate_accepted(Date date_accepted) {
+		this.date_accepted = date_accepted;
 	}
 
-	public String getRequestStatus() {
-		return requestStatus;
+	public String getrequest_status() {
+		return request_status;
 	}
 
-	public void setRequestStatus(String requestStatus) {
-		this.requestStatus = requestStatus;
+	public void setrequest_status(String request_status) {
+		this.request_status = request_status;
 	}
 
 	public String getAnimal() {
@@ -130,12 +130,12 @@ public class Request {
 		this.breed = breed;
 	}
 
-	public String getPhotoLink() {
-		return photoLink;
+	public String getphoto_link() {
+		return photo_link;
 	}
 
-	public void setPhotoLink(String photoLink) {
-		this.photoLink = photoLink;
+	public void setphoto_link(String photo_link) {
+		this.photo_link = photo_link;
 	}
 
 	@Override
@@ -146,10 +146,10 @@ public class Request {
 		result = prime * result + ((breed == null) ? 0 : breed.hashCode());
 		result = prime * result + ((breeder_id == null) ? 0 : breeder_id.hashCode());
 		result = prime * result + ((buyer_id == null) ? 0 : buyer_id.hashCode());
-		result = prime * result + ((dateAccepted == null) ? 0 : dateAccepted.hashCode());
-		result = prime * result + ((dateIssued == null) ? 0 : dateIssued.hashCode());
-		result = prime * result + ((photoLink == null) ? 0 : photoLink.hashCode());
-		result = prime * result + ((requestStatus == null) ? 0 : requestStatus.hashCode());
+		result = prime * result + ((date_accepted == null) ? 0 : date_accepted.hashCode());
+		result = prime * result + ((date_issued == null) ? 0 : date_issued.hashCode());
+		result = prime * result + ((photo_link == null) ? 0 : photo_link.hashCode());
+		result = prime * result + ((request_status == null) ? 0 : request_status.hashCode());
 		result = prime * result + request_id;
 		return result;
 	}
@@ -183,25 +183,25 @@ public class Request {
 				return false;
 		} else if (!buyer_id.equals(other.buyer_id))
 			return false;
-		if (dateAccepted == null) {
-			if (other.dateAccepted != null)
+		if (date_accepted == null) {
+			if (other.date_accepted != null)
 				return false;
-		} else if (!dateAccepted.equals(other.dateAccepted))
+		} else if (!date_accepted.equals(other.date_accepted))
 			return false;
-		if (dateIssued == null) {
-			if (other.dateIssued != null)
+		if (date_issued == null) {
+			if (other.date_issued != null)
 				return false;
-		} else if (!dateIssued.equals(other.dateIssued))
+		} else if (!date_issued.equals(other.date_issued))
 			return false;
-		if (photoLink == null) {
-			if (other.photoLink != null)
+		if (photo_link == null) {
+			if (other.photo_link != null)
 				return false;
-		} else if (!photoLink.equals(other.photoLink))
+		} else if (!photo_link.equals(other.photo_link))
 			return false;
-		if (requestStatus == null) {
-			if (other.requestStatus != null)
+		if (request_status == null) {
+			if (other.request_status != null)
 				return false;
-		} else if (!requestStatus.equals(other.requestStatus))
+		} else if (!request_status.equals(other.request_status))
 			return false;
 		if (request_id != other.request_id)
 			return false;
@@ -211,8 +211,8 @@ public class Request {
 	@Override
 	public String toString() {
 		return "Request [request_id=" + request_id + ", buyer_id=" + buyer_id + ", breeder_id=" + breeder_id
-				+ ", dateIssued=" + dateIssued + ", dateAccepted=" + dateAccepted + ", requestStatus=" + requestStatus
-				+ ", animal=" + animal + ", breed=" + breed + ", photoLink=" + photoLink + "]";
+				+ ", date_issued=" + date_issued + ", date_accepted=" + date_accepted + ", request_status=" + request_status
+				+ ", animal=" + animal + ", breed=" + breed + ", photo_link=" + photo_link + "]";
 	}
 	
 		
