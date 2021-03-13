@@ -18,8 +18,8 @@ public class RequestService {
 		this.requestRepository = requestRepository;
 	}
 	
-	public List<Request> findAllByBuyer_id(Integer buyer_id){
-		return this.requestRepository.findAllByBuyer_id(buyer_id);
+	public List<Request> findAllByBuyerid(Integer buyerid){
+		return this.requestRepository.findAllByBuyerid(buyerid);
 	}
 
 }

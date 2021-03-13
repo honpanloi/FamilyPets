@@ -17,19 +17,19 @@ import org.hibernate.annotations.ColumnDefault;
 public class Message 
 {
 	@Id
-	@GeneratedValue(generator = "familypets.message_id_seq", strategy = GenerationType.AUTO) // auto incremented value
-    @SequenceGenerator(allocationSize = 1, name = "familypets.message_id_seq", sequenceName = "familypets.message_id_seq")
-	@Column(name = "message_id")
-	@ColumnDefault("nextval('familypets.message_id_seq'::regclass)")
-	private int message_id;
+	@GeneratedValue(generator = "familypets.messageid_seq", strategy = GenerationType.AUTO) // auto incremented value
+    @SequenceGenerator(allocationSize = 1, name = "familypets.messageid_seq", sequenceName = "familypets.messageid_seq")
+	@Column(name = "messageid")
+	@ColumnDefault("nextval('familypets.messageid_seq'::regclass)")
+	private int messageid;
 	
 	@ManyToOne
-	@JoinColumn(name ="person_id", nullable = false)
-	private Person sender_id;
+	@JoinColumn(name ="personid", nullable = false)
+	private Person senderid;
 	
 	@ManyToOne
-	@JoinColumn(name = "request_id", nullable = false)
-	private Request request_id;
+	@JoinColumn(name = "requestid", nullable = false)
+	private Request requestid;
 	
 	@Column(name = "content", nullable = false)
 	private String content;
@@ -39,36 +39,36 @@ public class Message
 		// TODO Auto-generated constructor stub
 	}
 
-	public Message(int message_id, Person sender_id, Request request_id, String content) {
+	public Message(int messageid, Person senderid, Request requestid, String content) {
 		super();
-		this.message_id = message_id;
-		this.sender_id = sender_id;
-		this.request_id = request_id;
+		this.messageid = messageid;
+		this.senderid = senderid;
+		this.requestid = requestid;
 		this.content = content;
 	}
 
-	public int getMessage_id() {
-		return message_id;
+	public int getmessageid() {
+		return messageid;
 	}
 
-	public void setMessage_id(int message_id) {
-		this.message_id = message_id;
+	public void setmessageid(int messageid) {
+		this.messageid = messageid;
 	}
 
-	public Person getSender_id() {
-		return sender_id;
+	public Person getsenderid() {
+		return senderid;
 	}
 
-	public void setSender_id(Person sender_id) {
-		this.sender_id = sender_id;
+	public void setsenderid(Person senderid) {
+		this.senderid = senderid;
 	}
 
-	public Request getRequest_id() {
-		return request_id;
+	public Request getrequestid() {
+		return requestid;
 	}
 
-	public void setRequest_id(Request request_id) {
-		this.request_id = request_id;
+	public void setrequestid(Request requestid) {
+		this.requestid = requestid;
 	}
 
 	public String getContent() {
@@ -84,9 +84,9 @@ public class Message
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((content == null) ? 0 : content.hashCode());
-		result = prime * result + message_id;
-		result = prime * result + ((request_id == null) ? 0 : request_id.hashCode());
-		result = prime * result + ((sender_id == null) ? 0 : sender_id.hashCode());
+		result = prime * result + messageid;
+		result = prime * result + ((requestid == null) ? 0 : requestid.hashCode());
+		result = prime * result + ((senderid == null) ? 0 : senderid.hashCode());
 		return result;
 	}
 
@@ -104,24 +104,24 @@ public class Message
 				return false;
 		} else if (!content.equals(other.content))
 			return false;
-		if (message_id != other.message_id)
+		if (messageid != other.messageid)
 			return false;
-		if (request_id == null) {
-			if (other.request_id != null)
+		if (requestid == null) {
+			if (other.requestid != null)
 				return false;
-		} else if (!request_id.equals(other.request_id))
+		} else if (!requestid.equals(other.requestid))
 			return false;
-		if (sender_id == null) {
-			if (other.sender_id != null)
+		if (senderid == null) {
+			if (other.senderid != null)
 				return false;
-		} else if (!sender_id.equals(other.sender_id))
+		} else if (!senderid.equals(other.senderid))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Message [message_id=" + message_id + ", sender_id=" + sender_id + ", request_id=" + request_id
+		return "Message [messageid=" + messageid + ", senderid=" + senderid + ", requestid=" + requestid
 				+ ", content=" + content + "]";
 	}
 	

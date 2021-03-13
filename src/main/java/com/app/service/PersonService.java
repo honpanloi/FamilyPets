@@ -18,8 +18,8 @@ public class PersonService {
 	
 	
 	
-//	public Person findByPerson_id(int person_id) {
-//		return this.personRepository.findByPerson_id(person_id);
-//	}
+	public Person findByPersonid(int personid) {
+		return this.personRepository.findByPersonid(personid);
+	}
 	
 }

@@ -19,7 +19,7 @@ private String email;
 private String password;
 
 @OneToOne
-@JoinColumn (name ="person_id")
+@JoinColumn (name ="personid")
 private Person person;
 
 public PersonLogin() {

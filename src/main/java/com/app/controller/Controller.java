@@ -47,23 +47,29 @@ public class Controller {
 	
 	
 	
-	@GetMapping(path="/pendingBuyer/{buyer_id}", consumes = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<List<Request>> findAllByBuyer_id(@PathVariable int buyer_id){
-		return new ResponseEntity<List<Request>>(this.requestService.findAllByBuyer_id(buyer_id), HttpStatus.OK);
+	@GetMapping(path="/pendingBuyer/{buyerid}", consumes = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<List<Request>> findAllByBuyerid(@PathVariable int buyerid){
+		return new ResponseEntity<List<Request>>(this.requestService.findAllByBuyerid(buyerid), HttpStatus.OK);
 	}	
 	
 	
 	
-	@PostMapping(path="/login", produces= {MediaType.APPLICATION_JSON_VALUE})
-	public PersonLogin findByLogin(String email, String password) {
-		return this.loginService.findByLogin(email, password);
+//	@PostMapping(path="/login", produces= {MediaType.APPLICATION_JSON_VALUE})
+//	public PersonLogin findByLogin(String email, String password) {
+//		return this.loginService.findByLogin(email, password);
+//	}
+	
+	@PostMapping(path="/login", consumes= {MediaType.APPLICATION_JSON_VALUE})
+	public void findByLogin(@RequestBody String email,@RequestBody String password) {
+		this.loginService.findByLogin(email, password);
 	}
 	
 	
-//	@GetMapping(path="/person/{person_id}", consumes = {MediaType.APPLICATION_JSON_VALUE})
-//	public ResponseEntity<Person> findByPerson_id(@PathVariable int person_id){
-//		return new ResponseEntity<Person>(this.personService.findByPerson_id(person_id), HttpStatus.OK);
-//	}
+	
+	@GetMapping(path="/person/{personid}", consumes = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<Person> findByPersonid(@PathVariable int personid){
+		return new ResponseEntity<Person>(this.personService.findByPersonid(personid), HttpStatus.OK);
+	}
 	
 	
 }

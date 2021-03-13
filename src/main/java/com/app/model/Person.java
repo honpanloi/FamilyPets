@@ -17,29 +17,29 @@ import org.hibernate.annotations.ColumnDefault;
 public class Person {
 
 	@Id
-	@Column(name = "person_id")
-	@GeneratedValue(generator = "familypets.person_id_seq", strategy = GenerationType.AUTO) // auto incremented value
-    @SequenceGenerator(allocationSize = 1, name = "familypets.person_id_seq", sequenceName = "familypets.person_id_seq")
-	@ColumnDefault("nextval('familypets.person_id_seq'::regclass)")
-	private int person_id;
+	@Column(name = "personid")
+	@GeneratedValue(generator = "familypets.personid_seq", strategy = GenerationType.AUTO) // auto incremented value
+    @SequenceGenerator(allocationSize = 1, name = "familypets.personid_seq", sequenceName = "familypets.personid_seq")
+	@ColumnDefault("nextval('familypets.personid_seq'::regclass)")
+	private int personid;
 	
 	@Column(name = "email", nullable = false)
 	private String email;
 	
-	@Column(name = "first_name", nullable = false)
-	private String first_name;
+	@Column(name = "firstname", nullable = false)
+	private String firstname;
 	
-	@Column(name = "last_name", nullable = false)
-	private String last_name;
+	@Column(name = "lastname", nullable = false)
+	private String lastname;
 	
-	@Column(name = "is_breeder", nullable = false)
-	private boolean is_breeder;
+	@Column(name = "isbreeder", nullable = false)
+	private boolean isbreeder;
 	
 	@Column(name="dateOfBirth", nullable = false)
 	private Date dob;
 	
-	@Column(name = "phone_number", nullable = false)
-	private String phone_number;
+	@Column(name = "phonenumber", nullable = false)
+	private String phonenumber;
 	
 	@Column(name ="city", nullable = false)
 	private String city;
@@ -49,25 +49,25 @@ public class Person {
 	
 	}
 
-	public Person(int person_id, String email, String first_name, String last_name, boolean is_breeder, Date dob,
-			String phone_number, String city) {
+	public Person(int personid, String email, String firstname, String lastname, boolean isbreeder, Date dob,
+			String phonenumber, String city) {
 		super();
-		this.person_id = person_id;
+		this.personid = personid;
 		this.email = email;
-		this.first_name = first_name;
-		this.last_name = last_name;
-		this.is_breeder = is_breeder;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.isbreeder = isbreeder;
 		this.dob = dob;
-		this.phone_number = phone_number;
+		this.phonenumber = phonenumber;
 		this.city = city;
 	}
 
-	public int getperson_id() {
-		return person_id;
+	public int getPersonid() {
+		return personid;
 	}
 
-	public void setperson_id(int person_id) {
-		this.person_id = person_id;
+	public void setPersonid(int personid) {
+		this.personid = personid;
 	}
 
 	public String getEmail() {
@@ -78,28 +78,28 @@ public class Person {
 		this.email = email;
 	}
 
-	public String getfirst_name() {
-		return first_name;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setfirst_name(String first_name) {
-		this.first_name = first_name;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
-	public String getlast_name() {
-		return last_name;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setlast_name(String last_name) {
-		this.last_name = last_name;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
-	public boolean is_breeder() {
-		return is_breeder;
+	public boolean isIsbreeder() {
+		return isbreeder;
 	}
 
-	public void setBreeder(boolean is_breeder) {
-		this.is_breeder = is_breeder;
+	public void setIsbreeder(boolean isbreeder) {
+		this.isbreeder = isbreeder;
 	}
 
 	public Date getDob() {
@@ -110,12 +110,12 @@ public class Person {
 		this.dob = dob;
 	}
 
-	public String getphone_number() {
-		return phone_number;
+	public String getPhonenumber() {
+		return phonenumber;
 	}
 
-	public void setphone_number(String phone_number) {
-		this.phone_number = phone_number;
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
 	}
 
 	public String getCity() {
@@ -126,8 +126,6 @@ public class Person {
 		this.city = city;
 	}
 
-	
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -135,11 +133,11 @@ public class Person {
 		result = prime * result + ((city == null) ? 0 : city.hashCode());
 		result = prime * result + ((dob == null) ? 0 : dob.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((first_name == null) ? 0 : first_name.hashCode());
-		result = prime * result + (is_breeder ? 1231 : 1237);
-		result = prime * result + ((last_name == null) ? 0 : last_name.hashCode());
-		result = prime * result + person_id;
-		result = prime * result + ((phone_number == null) ? 0 : phone_number.hashCode());
+		result = prime * result + ((firstname == null) ? 0 : firstname.hashCode());
+		result = prime * result + (isbreeder ? 1231 : 1237);
+		result = prime * result + ((lastname == null) ? 0 : lastname.hashCode());
+		result = prime * result + personid;
+		result = prime * result + ((phonenumber == null) ? 0 : phonenumber.hashCode());
 		return result;
 	}
 
@@ -167,36 +165,36 @@ public class Person {
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
-		if (first_name == null) {
-			if (other.first_name != null)
+		if (firstname == null) {
+			if (other.firstname != null)
 				return false;
-		} else if (!first_name.equals(other.first_name))
+		} else if (!firstname.equals(other.firstname))
 			return false;
-		if (is_breeder != other.is_breeder)
+		if (isbreeder != other.isbreeder)
 			return false;
-		if (last_name == null) {
-			if (other.last_name != null)
+		if (lastname == null) {
+			if (other.lastname != null)
 				return false;
-		} else if (!last_name.equals(other.last_name))
+		} else if (!lastname.equals(other.lastname))
 			return false;
-		if (person_id != other.person_id)
+		if (personid != other.personid)
 			return false;
-		if (phone_number == null) {
-			if (other.phone_number != null)
+		if (phonenumber == null) {
+			if (other.phonenumber != null)
 				return false;
-		} else if (!phone_number.equals(other.phone_number))
+		} else if (!phonenumber.equals(other.phonenumber))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "person [person_id=" + person_id + ", email=" + email + ", first_name=" + first_name + ", last_name="
-				+ last_name + ", is_breeder=" + is_breeder + ", dob=" + dob + ", phone_number=" + phone_number + ", city="
+		return "Person [personid=" + personid + ", email=" + email + ", firstname=" + firstname + ", lastname="
+				+ lastname + ", isbreeder=" + isbreeder + ", dob=" + dob + ", phonenumber=" + phonenumber + ", city="
 				+ city + "]";
 	}
-	
-	
+
+		
 	
 	
 	
