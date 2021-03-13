@@ -60,12 +60,10 @@ public class Controller {
 	}
 	
 	
-	@GetMapping(path="/person/{person_id}", consumes = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<Person> findByPerson_id(@PathVariable int person_id){
-		return new ResponseEntity<Person>(this.personService.findByPerson_id(person_id), HttpStatus.OK);
-	}
-	
-	
+//	@GetMapping(path="/person/{person_id}", consumes = {MediaType.APPLICATION_JSON_VALUE})
+//	public ResponseEntity<Person> findByPerson_id(@PathVariable int person_id){
+//		return new ResponseEntity<Person>(this.personService.findByPerson_id(person_id), HttpStatus.OK);
+//	}
 	
 	
 }
