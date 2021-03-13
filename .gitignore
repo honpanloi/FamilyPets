@@ -31,5 +31,5 @@ MANIFEST.MF
 pom.properties
 .factorypath
 .settings/org.eclipse.jdt.apt.core.prefs
-
+application.properties
 
