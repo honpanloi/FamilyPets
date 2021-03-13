@@ -17,9 +17,6 @@ public class LoginService {
 	
 	private LoginRepository loginRepository;
 	
-	private RequestRepository requestRepository;
-	
-	private PersonRepository personRepository;
 	
 	@Autowired
 	public void setLoginRepository(LoginRepository loginRepository) {
