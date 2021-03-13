@@ -14,4 +14,6 @@ public interface RequestRepository extends JpaRepository<Request, Integer> {
 
 		@Query(value = "select r from Request r where r.buyer_id = :buyer_id and r.request_status = 'pending'")
 		List<Request> findAllByBuyer_id(@Param("buyer_id") Integer buyer_id);
+		
+		
 }

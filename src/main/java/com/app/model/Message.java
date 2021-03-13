@@ -17,8 +17,8 @@ import javax.persistence.Table;
 public class Message 
 {
 	@Id
-	@GeneratedValue(generator = "message_id_seq", strategy = GenerationType.AUTO) // auto incremented value
-    @SequenceGenerator(allocationSize = 1, name = "message_id_seq", sequenceName = "message_id_seq")
+	@GeneratedValue(generator = "familypets.message_id_seq", strategy = GenerationType.AUTO) // auto incremented value
+    @SequenceGenerator(allocationSize = 1, name = "familypets.message_id_seq", sequenceName = "familypets.message_id_seq")
 	@Column(name = "message_id")
 	private int message_id;
 	

@@ -15,8 +15,9 @@ import javax.persistence.Table;
 public class Person {
 
 	@Id
-	@GeneratedValue(generator = "person_id_seq", strategy = GenerationType.AUTO) // auto incremented value
-    @SequenceGenerator(allocationSize = 1, name = "person_id_seq", sequenceName = "person_id_seq")
+	@Column(name = "person_id")
+	@GeneratedValue(generator = "familypets.person_id_seq", strategy = GenerationType.AUTO) // auto incremented value
+    @SequenceGenerator(allocationSize = 1, name = "familypets.person_id_seq", sequenceName = "familypets.person_id_seq")
 	private int person_id;
 	
 	@Column(name = "email", nullable = false)
@@ -35,7 +36,7 @@ public class Person {
 	private Date dob;
 	
 	@Column(name = "phone_number", nullable = false)
-	private long phone_number;
+	private String phone_number;
 	
 	@Column(name ="city", nullable = false)
 	private String city;
@@ -46,7 +47,7 @@ public class Person {
 	}
 
 	public Person(int person_id, String email, String first_name, String last_name, boolean is_breeder, Date dob,
-			long phone_number, String city) {
+			String phone_number, String city) {
 		super();
 		this.person_id = person_id;
 		this.email = email;
@@ -106,11 +107,11 @@ public class Person {
 		this.dob = dob;
 	}
 
-	public long getphone_number() {
+	public String getphone_number() {
 		return phone_number;
 	}
 
-	public void setphone_number(long phone_number) {
+	public void setphone_number(String phone_number) {
 		this.phone_number = phone_number;
 	}
 
@@ -122,18 +123,20 @@ public class Person {
 		this.city = city;
 	}
 
+	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + person_id;
 		result = prime * result + ((city == null) ? 0 : city.hashCode());
 		result = prime * result + ((dob == null) ? 0 : dob.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((first_name == null) ? 0 : first_name.hashCode());
 		result = prime * result + (is_breeder ? 1231 : 1237);
 		result = prime * result + ((last_name == null) ? 0 : last_name.hashCode());
-		result = prime * result + (int) (phone_number ^ (phone_number >>> 32));
+		result = prime * result + person_id;
+		result = prime * result + ((phone_number == null) ? 0 : phone_number.hashCode());
 		return result;
 	}
 
@@ -146,8 +149,6 @@ public class Person {
 		if (getClass() != obj.getClass())
 			return false;
 		Person other = (Person) obj;
-		if (person_id != other.person_id)
-			return false;
 		if (city == null) {
 			if (other.city != null)
 				return false;
@@ -175,7 +176,12 @@ public class Person {
 				return false;
 		} else if (!last_name.equals(other.last_name))
 			return false;
-		if (phone_number != other.phone_number)
+		if (person_id != other.person_id)
+			return false;
+		if (phone_number == null) {
+			if (other.phone_number != null)
+				return false;
+		} else if (!phone_number.equals(other.phone_number))
 			return false;
 		return true;
 	}

@@ -16,9 +16,9 @@ import javax.persistence.Table;
 @Table(name = "request", schema = "familypets")
 public class Request {
 	@Id
-	@GeneratedValue(generator = "request_id_seq", strategy = GenerationType.AUTO) // auto incremented value
-	@SequenceGenerator(allocationSize = 1, name = "request_id_seq", sequenceName = "request_id_seq")
-	@Column
+	@GeneratedValue(generator = "familypets.request_id_seq", strategy = GenerationType.AUTO) // auto incremented value
+	@SequenceGenerator(allocationSize = 1, name = "familypets.request_id_seq", sequenceName = "familypets.request_id_seq")
+	@Column(name="request_id")
 	private int request_id;
 	
 	@ManyToOne
