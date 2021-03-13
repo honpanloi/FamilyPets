@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ColumnDefault;
+
 @Entity
 @Table(name = "request", schema = "familypets")
 public class Request {
@@ -19,6 +21,7 @@ public class Request {
 	@GeneratedValue(generator = "familypets.request_id_seq", strategy = GenerationType.AUTO) // auto incremented value
 	@SequenceGenerator(allocationSize = 1, name = "familypets.request_id_seq", sequenceName = "familypets.request_id_seq")
 	@Column(name="request_id")
+	@ColumnDefault("nextval('familypets.request_id_seq'::regclass)")
 	private int request_id;
 	
 	@ManyToOne
