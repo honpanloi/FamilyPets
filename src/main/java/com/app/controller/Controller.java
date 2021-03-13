@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.model.Person;
 import com.app.model.PersonLogin;
 import com.app.model.Request;
 import com.app.service.LoginService;
+import com.app.service.PersonService;
 import com.app.service.RequestService;
 
 @RestController(value = "Controller")
@@ -26,6 +28,7 @@ public class Controller {
 	
 	private RequestService requestService;
 	private LoginService loginService;
+	private PersonService personService;
 	
 	@Autowired
 	public void setRequestService(RequestService requestService) {
@@ -37,19 +40,32 @@ public class Controller {
 		this.loginService = loginService;
 	}
 	
+	@Autowired
+	public void setPersonService(PersonService personService) {
+		this.personService = personService;
+	}
 	
 	
-	@GetMapping(path="/pendingBuyer/{pendingBuyer}", produces = {MediaType.APPLICATION_JSON_VALUE})
+	
+	@GetMapping(path="/pendingBuyer/{buyer_id}", consumes = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<List<Request>> findAllByBuyer_id(@PathVariable int buyer_id){
 		return new ResponseEntity<List<Request>>(this.requestService.findAllByBuyer_id(buyer_id), HttpStatus.OK);
 	}	
 	
 	
 	
-	@PostMapping(path="/login", consumes= {MediaType.APPLICATION_JSON_VALUE})
+	@PostMapping(path="/login", produces= {MediaType.APPLICATION_JSON_VALUE})
 	public PersonLogin findByLogin(String email, String password) {
 		return this.loginService.findByLogin(email, password);
 	}
+	
+	
+	@GetMapping(path="/person/{person_id}", consumes = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<Person> findByPerson_id(@PathVariable int person_id){
+		return new ResponseEntity<Person>(this.personService.findByPerson_id(person_id), HttpStatus.OK);
+	}
+	
+	
 	
 	
 }
