@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ColumnDefault;
+
 @Entity
 @Table(name = "person", schema = "familypets")
 public class Person {
@@ -18,6 +20,7 @@ public class Person {
 	@Column(name = "person_id")
 	@GeneratedValue(generator = "familypets.person_id_seq", strategy = GenerationType.AUTO) // auto incremented value
     @SequenceGenerator(allocationSize = 1, name = "familypets.person_id_seq", sequenceName = "familypets.person_id_seq")
+	@ColumnDefault("nextval('familypets.person_id_seq'::regclass)")
 	private int person_id;
 	
 	@Column(name = "email", nullable = false)

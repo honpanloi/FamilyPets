@@ -1,7 +1,5 @@
 package com.app.model;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ColumnDefault;
+
 @Entity
 @Table(name = "message", schema = "familypets")
 public class Message 
@@ -20,6 +20,7 @@ public class Message
 	@GeneratedValue(generator = "familypets.message_id_seq", strategy = GenerationType.AUTO) // auto incremented value
     @SequenceGenerator(allocationSize = 1, name = "familypets.message_id_seq", sequenceName = "familypets.message_id_seq")
 	@Column(name = "message_id")
+	@ColumnDefault("nextval('familypets.message_id_seq'::regclass)")
 	private int message_id;
 	
 	@ManyToOne
