@@ -12,8 +12,8 @@ import com.app.model.Request;
 @Repository(value="requestRepository")
 public interface RequestRepository extends JpaRepository<Request, Integer> {
 
-		@Query(value = "select r from Request r where r.buyerid = :buyerid and r.requeststatus = 'pending'")
-		List<Request> findAllByBuyerid(@Param("buyerid") int buyerid);
+		//@Query(value = "select r from Request r where r.buyerid = :buyerid and r.requeststatus = 'pending'")
+		List<Request> findAllByBuyerid (Integer buyerid);
 		
 		
 }

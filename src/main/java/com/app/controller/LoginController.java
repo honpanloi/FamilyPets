@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.model.Person;
@@ -21,10 +21,10 @@ import com.app.service.LoginService;
 import com.app.service.PersonService;
 import com.app.service.RequestService;
 
-@RestController(value = "Controller")
-@RequestMapping(path = "/api")
+@RestController(value = "LoginController")
+@RequestMapping(path = "/login")
 @CrossOrigin(origins = {"http://localhost:4200"})
-public class Controller {
+public class LoginController {
 	
 	private RequestService requestService;
 	private LoginService loginService;
@@ -47,9 +47,9 @@ public class Controller {
 	
 	
 	
-	@GetMapping(path="/pendingBuyer/{buyerid}", consumes = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<List<Request>> findAllByBuyerid(@PathVariable int buyerid){
-		return new ResponseEntity<List<Request>>(this.requestService.findAllByBuyerid(buyerid), HttpStatus.OK);
+	@GetMapping(path="/pendingBuyer/{buyerid}")
+	public List<Request> findAllByBuyerid(@PathVariable Integer buyerid){
+		return this.requestService.findAllByBuyerid(buyerid);
 	}	
 	
 	
@@ -59,14 +59,14 @@ public class Controller {
 //		return this.loginService.findByLogin(email, password);
 //	}
 	
-	@PostMapping(path="/login", consumes= {MediaType.APPLICATION_JSON_VALUE})
-	public void findByLogin(@RequestBody String email,@RequestBody String password) {
-		this.loginService.findByLogin(email, password);
+	@PostMapping(path="/login")//, consumes= {MediaType.APPLICATION_JSON_VALUE})
+	public PersonLogin findByEmailAndPassword(@RequestParam String email,@RequestParam String password) {
+		return this.loginService.findByEmailAndPassword(email, password);
 	}
 	
 	
 	
-	@GetMapping(path="/person/{personid}", consumes = {MediaType.APPLICATION_JSON_VALUE})
+	@GetMapping(path="/person/{personid}", produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<Person> findByPersonid(@PathVariable int personid){
 		return new ResponseEntity<Person>(this.personService.findByPersonid(personid), HttpStatus.OK);
 	}

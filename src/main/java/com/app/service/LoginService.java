@@ -25,8 +25,12 @@ public class LoginService {
 	
 	
 	
-	public PersonLogin findByLogin(String email, String password) {
-		return this.loginRepository.findByLogin(email, password);
+//	public PersonLogin findByLogin(String email, String password) {
+//		return this.loginRepository.findByLogin(email, password);
+//	}
+	
+	public PersonLogin findByEmailAndPassword(String email, String password) {
+		return this.loginRepository.findByEmailAndPassword(email, password);
 	}
 	
 

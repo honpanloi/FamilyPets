@@ -9,6 +9,6 @@ import com.app.model.Person;
 @Repository (value = "personRepository")
 public interface PersonRepository extends JpaRepository<Person, Integer>{
 
-	Person findByPersonid(@Param("personid") int personid);
+	Person findByPersonid(@Param("personid") Integer personid);
 	
 }

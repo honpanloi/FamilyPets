@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class PersonLogin {
 	
 @Id
-@Column
+@Column (name = "email")
 private String email;
 	
 @Column(name = "password", nullable = false)
