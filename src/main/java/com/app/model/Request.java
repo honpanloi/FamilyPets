@@ -24,9 +24,10 @@ public class Request {
 	@ColumnDefault("nextval('familypets.requestid_seq'::regclass)")
 	private int requestid;
 	
-	@ManyToOne
-	@JoinColumn(name="buyerid", nullable = false)
-	private Person buyerid;
+	//@ManyToOne
+	//@JoinColumn(name="buyerid", nullable = false)
+	@Column
+	private int buyerid;
 	
 	@ManyToOne
 	@JoinColumn(name ="breederid")
@@ -55,7 +56,7 @@ public class Request {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Request(int requestid, Person buyerid, Person breederid, Date dateissued, Date dateaccepted,
+	public Request(int requestid, int buyerid, Person breederid, Date dateissued, Date dateaccepted,
 			String requeststatus, String animal, String breed, String photolink) {
 		super();
 		this.requestid = requestid;
@@ -69,51 +70,51 @@ public class Request {
 		this.photolink = photolink;
 	}
 
-	public int getrequestid() {
+	public int getRequestid() {
 		return requestid;
 	}
 
-	public void setrequestid(int requestid) {
+	public void setRequestid(int requestid) {
 		this.requestid = requestid;
 	}
 
-	public Person getbuyerid() {
+	public int getBuyerid() {
 		return buyerid;
 	}
 
-	public void setbuyerid(Person buyerid) {
+	public void setBuyerid(int buyerid) {
 		this.buyerid = buyerid;
 	}
 
-	public Person getbreederid() {
+	public Person getBreederid() {
 		return breederid;
 	}
 
-	public void setbreederid(Person breederid) {
+	public void setBreederid(Person breederid) {
 		this.breederid = breederid;
 	}
 
-	public Date getdateissued() {
+	public Date getDateissued() {
 		return dateissued;
 	}
 
-	public void setdateissued(Date dateissued) {
+	public void setDateissued(Date dateissued) {
 		this.dateissued = dateissued;
 	}
 
-	public Date getdateaccepted() {
+	public Date getDateaccepted() {
 		return dateaccepted;
 	}
 
-	public void setdateaccepted(Date dateaccepted) {
+	public void setDateaccepted(Date dateaccepted) {
 		this.dateaccepted = dateaccepted;
 	}
 
-	public String getrequeststatus() {
+	public String getRequeststatus() {
 		return requeststatus;
 	}
 
-	public void setrequeststatus(String requeststatus) {
+	public void setRequeststatus(String requeststatus) {
 		this.requeststatus = requeststatus;
 	}
 
@@ -133,11 +134,11 @@ public class Request {
 		this.breed = breed;
 	}
 
-	public String getphotolink() {
+	public String getPhotolink() {
 		return photolink;
 	}
 
-	public void setphotolink(String photolink) {
+	public void setPhotolink(String photolink) {
 		this.photolink = photolink;
 	}
 
@@ -148,12 +149,12 @@ public class Request {
 		result = prime * result + ((animal == null) ? 0 : animal.hashCode());
 		result = prime * result + ((breed == null) ? 0 : breed.hashCode());
 		result = prime * result + ((breederid == null) ? 0 : breederid.hashCode());
-		result = prime * result + ((buyerid == null) ? 0 : buyerid.hashCode());
+		result = prime * result + buyerid;
 		result = prime * result + ((dateaccepted == null) ? 0 : dateaccepted.hashCode());
 		result = prime * result + ((dateissued == null) ? 0 : dateissued.hashCode());
 		result = prime * result + ((photolink == null) ? 0 : photolink.hashCode());
-		result = prime * result + ((requeststatus == null) ? 0 : requeststatus.hashCode());
 		result = prime * result + requestid;
+		result = prime * result + ((requeststatus == null) ? 0 : requeststatus.hashCode());
 		return result;
 	}
 
@@ -181,10 +182,7 @@ public class Request {
 				return false;
 		} else if (!breederid.equals(other.breederid))
 			return false;
-		if (buyerid == null) {
-			if (other.buyerid != null)
-				return false;
-		} else if (!buyerid.equals(other.buyerid))
+		if (buyerid != other.buyerid)
 			return false;
 		if (dateaccepted == null) {
 			if (other.dateaccepted != null)
@@ -201,22 +199,23 @@ public class Request {
 				return false;
 		} else if (!photolink.equals(other.photolink))
 			return false;
+		if (requestid != other.requestid)
+			return false;
 		if (requeststatus == null) {
 			if (other.requeststatus != null)
 				return false;
 		} else if (!requeststatus.equals(other.requeststatus))
-			return false;
-		if (requestid != other.requestid)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Request [requestid=" + requestid + ", buyerid=" + buyerid + ", breederid=" + breederid
-				+ ", dateissued=" + dateissued + ", dateaccepted=" + dateaccepted + ", requeststatus=" + requeststatus
-				+ ", animal=" + animal + ", breed=" + breed + ", photolink=" + photolink + "]";
+		return "Request [requestid=" + requestid + ", buyerid=" + buyerid + ", breederid=" + breederid + ", dateissued="
+				+ dateissued + ", dateaccepted=" + dateaccepted + ", requeststatus=" + requeststatus + ", animal="
+				+ animal + ", breed=" + breed + ", photolink=" + photolink + "]";
 	}
-	
+
+		
 		
 }

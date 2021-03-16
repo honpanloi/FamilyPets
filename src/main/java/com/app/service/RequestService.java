@@ -1,5 +1,7 @@
 package com.app.service;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,11 @@ public class RequestService {
 	
 	public List<Request> findAllByBuyerid(Integer buyerid){
 		return this.requestRepository.findAllByBuyerid(buyerid);
+	}
+	
+	public void acceptRequest(Request request) {
+		request.setDateaccepted(Date.valueOf(LocalDate.now()));
+		this.requestRepository.save(request);
 	}
 
 }
