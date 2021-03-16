@@ -16,6 +16,6 @@ public interface MessageRepository extends JpaRepository<Message, Integer>{
 	<S extends Message> S save (Message message);
 	
 	//viewing a message
-	@Query(value = "select m from Message m where m.requestid = :requestid")
+	@Query(value = "select m from Message m where m.requestid.requestid = :requestid")
 	List<Message> findAllByRequestid (@Param("requestid") int requestid);
 }

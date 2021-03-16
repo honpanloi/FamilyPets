@@ -9,7 +9,11 @@ import com.app.model.Person;
 @Repository (value = "personRepository")
 public interface PersonRepository extends JpaRepository<Person, Integer>{
 
-	Person findByPersonid(@Param("personid") Integer personid);
+	Person findByPersonid(Integer personid);
+	
+	//<S extends Person> S findByPersonid(Integer personid);
+	
 	<S extends Person> S save (Person person);
+	
 	
 }

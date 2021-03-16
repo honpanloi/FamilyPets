@@ -24,10 +24,10 @@ public class Request {
 	@ColumnDefault("nextval('familypets.requestid_seq'::regclass)")
 	private int requestid;
 	
-	//@ManyToOne
-	//@JoinColumn(name="buyerid", nullable = false)
-	@Column
-	private int buyerid;
+	@ManyToOne
+	@JoinColumn(name="buyerid", nullable = false)
+//	@Column
+	private Person buyerid;
 	
 	@ManyToOne
 	@JoinColumn(name ="breederid")
@@ -56,7 +56,7 @@ public class Request {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Request(int requestid, int buyerid, Person breederid, Date dateissued, Date dateaccepted,
+	public Request(int requestid, Person buyerid, Person breederid, Date dateissued, Date dateaccepted,
 			String requeststatus, String animal, String breed, String photolink) {
 		super();
 		this.requestid = requestid;
@@ -78,11 +78,11 @@ public class Request {
 		this.requestid = requestid;
 	}
 
-	public int getBuyerid() {
+	public Person getBuyerid() {
 		return buyerid;
 	}
 
-	public void setBuyerid(int buyerid) {
+	public void setBuyerid(Person buyerid) {
 		this.buyerid = buyerid;
 	}
 
@@ -149,7 +149,7 @@ public class Request {
 		result = prime * result + ((animal == null) ? 0 : animal.hashCode());
 		result = prime * result + ((breed == null) ? 0 : breed.hashCode());
 		result = prime * result + ((breederid == null) ? 0 : breederid.hashCode());
-		result = prime * result + buyerid;
+		result = prime * result + ((buyerid == null) ? 0 : buyerid.hashCode());
 		result = prime * result + ((dateaccepted == null) ? 0 : dateaccepted.hashCode());
 		result = prime * result + ((dateissued == null) ? 0 : dateissued.hashCode());
 		result = prime * result + ((photolink == null) ? 0 : photolink.hashCode());
@@ -182,7 +182,10 @@ public class Request {
 				return false;
 		} else if (!breederid.equals(other.breederid))
 			return false;
-		if (buyerid != other.buyerid)
+		if (buyerid == null) {
+			if (other.buyerid != null)
+				return false;
+		} else if (!buyerid.equals(other.buyerid))
 			return false;
 		if (dateaccepted == null) {
 			if (other.dateaccepted != null)
@@ -216,6 +219,6 @@ public class Request {
 				+ animal + ", breed=" + breed + ", photolink=" + photolink + "]";
 	}
 
-		
+			
 		
 }

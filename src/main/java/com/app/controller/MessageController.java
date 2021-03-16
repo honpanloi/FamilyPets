@@ -27,12 +27,12 @@ public class MessageController {
 	}
 	
 	
-	@PostMapping(path = "/create")
-	public void createMessage(@RequestBody Message message) {
-		this.messageservice.createMessage(message);
+	@PostMapping(path = "/create/{requestid}/{personid}/{content}")
+	public void createMessage(@PathVariable int requestid, @PathVariable int personid, @PathVariable String content) {
+		this.messageservice.createMessage(requestid, personid, content);
 	}
 	
-	@GetMapping(path = "/view")
+	@GetMapping(path = "/view/{requestid}")
 	public List<Message> viewMessages(@PathVariable int requestid){
 		return this.messageservice.viewMessages(requestid);
 	}

@@ -13,7 +13,8 @@ import com.app.model.Request;
 public interface RequestRepository extends JpaRepository<Request, Integer> {
 
 		//find all requests by user Id for both pending and accepted---
-		List<Request> findAllByBuyeridAndRequeststatus (Integer buyerid, String requeststatus);
+		@Query(value="SELECT R FROM Request R WHERE R.buyerid.personid = :buyerid AND R.requeststatus = :requeststatus")
+		List<Request> findAllByBuyeridAndRequeststatus (@Param("buyerid") Integer buyerid, @Param("requeststatus") String requeststatus);
 		
 		//update request
 		//1.buyer updates a pending request---
@@ -21,6 +22,8 @@ public interface RequestRepository extends JpaRepository<Request, Integer> {
 		//3. buyer creates a request---
 		<S extends Request> S save (Request request);
 		
+		//used for creating a message; we need the request
+		Request findByRequestid (Integer requestid);
 		
 		
 }

@@ -1,6 +1,8 @@
 package com.app.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,8 +30,13 @@ public class LoginController {
 		return this.loginService.findByEmailAndPassword(email, password, request);
 	}
 	
-	
-	
+	@PostMapping(path="logout")
+	public void logout(HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
+		if(session != null) {
+			session.invalidate();
+		}
+	}
 
 	
 }
