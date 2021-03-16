@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.app.model.Message;
 
 @Repository(value = "messagerepository")
-public interface MessageRepository extends JpaRepository{
+public interface MessageRepository extends JpaRepository<Message, Integer>{
 	
 	//create message
 	<S extends Message> S save (Message message);
