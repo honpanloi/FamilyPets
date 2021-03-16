@@ -10,5 +10,6 @@ import com.app.model.Person;
 public interface PersonRepository extends JpaRepository<Person, Integer>{
 
 	Person findByPersonid(@Param("personid") Integer personid);
+	<S extends Person> S save (Person person);
 	
 }

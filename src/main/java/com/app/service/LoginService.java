@@ -1,15 +1,14 @@
 package com.app.service;
 
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.app.model.Person;
 import com.app.model.PersonLogin;
-import com.app.model.Request;
 import com.app.repository.LoginRepository;
-import com.app.repository.PersonRepository;
-import com.app.repository.RequestRepository;
 
 @Service (value = "loginService")
 public class LoginService {
@@ -23,7 +22,19 @@ public class LoginService {
 		this.loginRepository = loginRepository;
 	}	
 
-	public PersonLogin findByEmailAndPassword(String email, String password) {
-		return this.loginRepository.findByEmailAndPassword(email, password);
+	public int findByEmailAndPassword(String email, String password, HttpServletRequest request) {
+		Person person = null;
+		PersonLogin personLogin = this.loginRepository.findByEmailAndPassword(email, password);
+		if (personLogin != null) {
+			person = personLogin.getPerson();
+		}
+		if (person != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("person", person);
+			//System.out.println(session.getAttribute("person").toString());
+			return person.getPersonid();
+		}else {
+			return 0;
+		}
 	}
 }

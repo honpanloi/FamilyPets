@@ -1,10 +1,21 @@
 package com.app.repository;
 
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-@Repository(value = "messageRepository")
-public interface MessageRepository {
-	
-	
+import com.app.model.Message;
 
+@Repository(value = "messagerepository")
+public interface MessageRepository extends JpaRepository{
+	
+	//create message
+	<S extends Message> S save (Message message);
+	
+	//viewing a message
+	@Query(value = "select m from Message m where m.requestid = :requestid")
+	List<Message> findAllByRequestid (@Param("requestid") int requestid);
 }

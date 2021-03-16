@@ -12,8 +12,15 @@ import com.app.model.Request;
 @Repository(value="requestRepository")
 public interface RequestRepository extends JpaRepository<Request, Integer> {
 
-		List<Request> findAllByBuyerid (Integer buyerid);
+		//find all requests by user Id for both pending and accepted---
+		List<Request> findAllByBuyeridAndRequeststatus (Integer buyerid, String requeststatus);
+		
+		//update request
+		//1.buyer updates a pending request---
+		//2.breeder accepts request---
+		//3. buyer creates a request---
 		<S extends Request> S save (Request request);
+		
 		
 		
 }

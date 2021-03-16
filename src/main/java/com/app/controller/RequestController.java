@@ -2,6 +2,8 @@ package com.app.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -37,19 +39,22 @@ public class RequestController {
 	
 	
 	
-	@GetMapping(path="/pendingBuyer/{buyerid}")
-	public List<Request> findAllByBuyerid(@PathVariable Integer buyerid){
-		return this.requestService.findAllByBuyerid(buyerid);
+	@GetMapping(path="/view/{buyerid}/{requeststatus}")
+	public List<Request> findAllByBuyerid(@PathVariable Integer buyerid,@PathVariable String requeststatus){
+		return this.requestService.findAllByBuyerid(buyerid, requeststatus);
 	}	
 	
 	
-	@GetMapping(path="/accept")
-	public void acceptRequest (@RequestBody Request request) {
-		this.requestService.acceptRequest(request);
+	@GetMapping(path="/update")//need to test with session
+	public void acceptRequest (@RequestBody Request request, HttpServletRequest httpRequest) {
+		this.requestService.acceptRequest(request, httpRequest);
 	}
 
 	
-	
+	@GetMapping(path="/create")
+	public void createRequest (@RequestBody Request request) {
+		this.requestService.createRequest(request);
+	}
 	
 	
 	
