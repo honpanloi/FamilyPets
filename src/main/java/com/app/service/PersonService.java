@@ -16,8 +16,6 @@ public class PersonService {
 		this.personRepository = personRepository;
 	}
 	
-	
-	
 	public Person findByPersonid(int personid) {
 		return this.personRepository.findByPersonid(personid);
 	}

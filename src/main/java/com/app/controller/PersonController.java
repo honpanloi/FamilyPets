@@ -21,50 +21,17 @@ import com.app.service.LoginService;
 import com.app.service.PersonService;
 import com.app.service.RequestService;
 
-@RestController(value = "LoginController")
-@RequestMapping(path = "/login")
+@RestController(value = "PersonController")
+@RequestMapping(path = "/person")
 @CrossOrigin(origins = {"http://localhost:4200"})
 public class PersonController {
-	
-	private RequestService requestService;
-	private LoginService loginService;
-	private PersonService personService;
-	
-	@Autowired
-	public void setRequestService(RequestService requestService) {
-		this.requestService = requestService;
-	}
+
+	private PersonService personService;	
 		
-	@Autowired
-	public void setLoginService(LoginService loginService) {
-		this.loginService = loginService;
-	}
-	
 	@Autowired
 	public void setPersonService(PersonService personService) {
 		this.personService = personService;
-	}
-	
-	
-	
-	@GetMapping(path="/pendingBuyer/{buyerid}")
-	public List<Request> findAllByBuyerid(@PathVariable Integer buyerid){
-		return this.requestService.findAllByBuyerid(buyerid);
 	}	
-	
-	
-	
-//	@PostMapping(path="/login", produces= {MediaType.APPLICATION_JSON_VALUE})
-//	public PersonLogin findByLogin(String email, String password) {
-//		return this.loginService.findByLogin(email, password);
-//	}
-	
-	@PostMapping(path="/login")//, consumes= {MediaType.APPLICATION_JSON_VALUE})
-	public PersonLogin findByEmailAndPassword(@RequestParam String email,@RequestParam String password) {
-		return this.loginService.findByEmailAndPassword(email, password);
-	}
-	
-	
 	
 	@GetMapping(path="/person/{personid}", produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<Person> findByPersonid(@PathVariable int personid){

@@ -21,18 +21,9 @@ public class LoginService {
 	@Autowired
 	public void setLoginRepository(LoginRepository loginRepository) {
 		this.loginRepository = loginRepository;
-	}
-	
-	
-	
-//	public PersonLogin findByLogin(String email, String password) {
-//		return this.loginRepository.findByLogin(email, password);
-//	}
-	
+	}	
+
 	public PersonLogin findByEmailAndPassword(String email, String password) {
 		return this.loginRepository.findByEmailAndPassword(email, password);
 	}
-	
-
-
 }
