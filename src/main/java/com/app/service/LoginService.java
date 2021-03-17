@@ -22,7 +22,7 @@ public class LoginService {
 		this.loginRepository = loginRepository;
 	}	
 
-	public int findByEmailAndPassword(String email, String password, HttpServletRequest request) {
+	public Person findByEmailAndPassword(String email, String password, HttpServletRequest request) {
 		Person person = null;
 		PersonLogin personLogin = this.loginRepository.findByEmailAndPassword(email, password);
 		if (personLogin != null) {
@@ -32,9 +32,9 @@ public class LoginService {
 			HttpSession session = request.getSession();
 			session.setAttribute("person", person);
 			//System.out.println(session.getAttribute("person").toString());
-			return person.getPersonid();
+			return person;
 		}else {
-			return 0;
+			return null;
 		}
 	}
 }

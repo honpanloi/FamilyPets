@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.model.Person;
 import com.app.service.LoginService;
 
 @RestController(value = "LoginController")
@@ -25,7 +26,7 @@ public class LoginController {
 
 	
 	@PostMapping(path="login")//, consumes= {MediaType.APPLICATION_JSON_VALUE})
-	public int findByEmailAndPassword(@RequestParam String email,@RequestParam String password, HttpServletRequest request) {
+	public Person findByEmailAndPassword(@RequestParam String email,@RequestParam String password, HttpServletRequest request) {
 
 		return this.loginService.findByEmailAndPassword(email, password, request);
 	}
