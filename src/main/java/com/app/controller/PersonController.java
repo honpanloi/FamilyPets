@@ -1,6 +1,7 @@
 package com.app.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,9 +29,14 @@ public class PersonController {
 		this.personService = personService;
 	}	
 	
-	@GetMapping(path="/view/{personid}", produces = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<Person> findByPersonid(@PathVariable int personid){
-		return new ResponseEntity<Person>(this.personService.findByPersonid(personid), HttpStatus.OK);
+	@GetMapping(path="/view", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<Person> findByPersonid(HttpServletRequest request){
+		HttpSession session = request.getSession(false);
+		if(session==null) {
+			System.out.println("session is null");
+		}
+		Person person = (Person) session.getAttribute("person");
+		return new ResponseEntity<Person>(this.personService.findByPersonid(person.getPersonid()), HttpStatus.OK);
 	}
 	
 	@GetMapping(path="/update")

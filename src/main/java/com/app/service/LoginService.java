@@ -25,13 +25,20 @@ public class LoginService {
 	public Person findByEmailAndPassword(String email, String password, HttpServletRequest request) {
 		Person person = null;
 		PersonLogin personLogin = this.loginRepository.findByEmailAndPassword(email, password);
+		
+		
 		if (personLogin != null) {
 			person = personLogin.getPerson();
 		}
 		if (person != null) {
 			HttpSession session = request.getSession();
+			
+			if(session==null) {
+				System.out.println("session is null");
+			}
 			session.setAttribute("person", person);
-			//System.out.println(session.getAttribute("person").toString());
+
+//			System.out.println(session.getAttribute("person").toString());
 			return person;
 		}else {
 			return null;
