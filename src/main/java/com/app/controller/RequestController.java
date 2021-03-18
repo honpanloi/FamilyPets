@@ -45,14 +45,17 @@ public class RequestController {
 	}	
 	
 	
-	@GetMapping(path="/update")//need to test with session
+	@PostMapping(path="/update")//need to test with session
 	public void acceptRequest (@RequestBody Request request, HttpServletRequest httpRequest) {
 		this.requestService.acceptRequest(request, httpRequest);
 	}
 
 	
-	@GetMapping(path="/create")
+	@PostMapping(path="/create")
 	public void createRequest (@RequestBody Request request) {
+		request.setBreederid(null);
+		request.setDateaccepted(null);
+		System.out.println("create new "+request);
 		this.requestService.createRequest(request);
 	}
 	

@@ -23,14 +23,10 @@ public class PersonService {
 		return this.personRepository.findByPersonid(personid);
 	}
 	
-	public void updateInformation(Person person, HttpServletRequest request) {
-		HttpSession session = request.getSession(false);
-		Person person2 = (Person) session.getAttribute("person");
-		//System.out.println(person2.toString());
-		if(person.getPersonid() == person2.getPersonid()) {
+	public void updateInformation(Person person) {
 			this.personRepository.save(person);
 		}//don't change person information by another person
 		
-	}
+	
 	
 }
