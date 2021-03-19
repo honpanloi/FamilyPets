@@ -40,6 +40,8 @@ public class RequestController {
 	//endpoint for buyer
 	@GetMapping(path="/view/{buyerid}/{requeststatus}")
 	public List<Request> findAllByBuyerid(@PathVariable Integer buyerid,@PathVariable String requeststatus){
+		
+		System.out.println("IN HERE: "+requeststatus);
 		return this.requestService.findAllByBuyerid(buyerid, requeststatus);
 	}	
 	
