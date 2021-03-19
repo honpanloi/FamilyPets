@@ -41,12 +41,11 @@ public class RequestService {
 	}
 	
 	//Breeder: accept request
-	public void acceptRequest(Request request, HttpServletRequest httpRequest) {
-		HttpSession session = httpRequest.getSession(false);
-		Person person = (Person) session.getAttribute("person");
-		if(person.isIsbreeder()) {
-			request.setDateaccepted(Date.valueOf(LocalDate.now()));	
-		}
+	public void acceptRequest(Request request) {
+//		Person person = (Person) request.set
+//		if(person.isIsbreeder()) {
+//			request.setDateaccepted(Date.valueOf(LocalDate.now()));	
+//		}
 		
 		this.requestRepository.save(request);
 	}

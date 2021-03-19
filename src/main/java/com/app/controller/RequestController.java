@@ -55,13 +55,13 @@ public class RequestController {
 		return this.requestService.findAllAcceptedByBreederid(breederid);
 	}
 	
-	
+	//endpoint for breeder
 	@PostMapping(path="/update")//need to test with session
-	public void acceptRequest (@RequestBody Request request, HttpServletRequest httpRequest) {
-		this.requestService.acceptRequest(request, httpRequest);
+	public void acceptRequest (@RequestBody Request request) {
+		this.requestService.acceptRequest(request);
 	}
 
-	
+	//endpoint for buyer
 	@PostMapping(path="/create")
 	public void createRequest (@RequestBody Request request) {
 		request.setBreederid(null);
