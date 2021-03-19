@@ -23,15 +23,24 @@ public class RequestService {
 	public void setRequestRepository(RequestRepository requestRepository) {
 		this.requestRepository = requestRepository;
 	}
+	//------------------------------------------------------------------------------------------
 	
-	
-	
-	
-	
+	//Buyer: find by buyer id and pending or accepted status
 	public List<Request> findAllByBuyerid(Integer buyerid, String requeststatus){
 		return this.requestRepository.findAllByBuyeridAndRequeststatus(buyerid, requeststatus);
 	}
 	
+	//Breeder: find all pending
+	public List<Request> findAllByRequestStatus (){
+		return this.requestRepository.findAllByRequestStatus();
+	}
+	
+	//Breeder: find all accepted by breeder id
+	public List<Request> findAllAcceptedByBreederid(int breederid){
+		return this.requestRepository.findAllByBreederidAndRequeststatus(breederid);
+	}
+	
+	//Breeder: accept request
 	public void acceptRequest(Request request, HttpServletRequest httpRequest) {
 		HttpSession session = httpRequest.getSession(false);
 		Person person = (Person) session.getAttribute("person");

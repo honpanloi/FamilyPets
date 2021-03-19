@@ -35,14 +35,25 @@ public class RequestController {
 	public void setRequestService(RequestService requestService) {
 		this.requestService = requestService;
 	}
-		
+	//----------------------------------------------------------------------------------------------	
 	
-	
-	
+	//endpoint for buyer
 	@GetMapping(path="/view/{buyerid}/{requeststatus}")
 	public List<Request> findAllByBuyerid(@PathVariable Integer buyerid,@PathVariable String requeststatus){
 		return this.requestService.findAllByBuyerid(buyerid, requeststatus);
 	}	
+	
+	//endpoint for breeder
+	@GetMapping(path="/pending")
+	public List<Request> findAllByRequestStatus (){
+		return this.requestService.findAllByRequestStatus();
+	}
+	
+	//endpoint for breeder
+	@GetMapping(path="/resolved/{breederid}")
+	public List<Request> findAllAcceptedByBreederid (@PathVariable int breederid){
+		return this.requestService.findAllAcceptedByBreederid(breederid);
+	}
 	
 	
 	@PostMapping(path="/update")//need to test with session
