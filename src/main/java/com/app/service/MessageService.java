@@ -31,13 +31,17 @@ public class MessageService {
 	//----------------------------------------------------------------------------------
 	
 	
-	public void createMessage(int senderid, int requestid, String content) {
+	public void createMessage(int requestid,int senderid, String content) {
+		System.out.println("service "+requestid);
 		Person person = this.personrepository.findById(senderid).get();
 		Request request = this.requestrepository.findById(requestid).get();
 		Message message = new Message();
+		System.out.println("service: before setting message "+request.getRequestid());
 		message.setsenderid(person);
 		message.setrequestid(request);
 		message.setContent(content);
+		System.out.println(message);
+		System.out.println("service: after setting message "+message.getrequestid().getRequestid());
 		this.messagerepository.save(message);
 	}
 	

@@ -53,5 +53,13 @@ public class RequestService {
 	public void createRequest(Request request) {
 		this.requestRepository.save(request);
 	}
+	
+	public void updateRequest(Request request) {
+		Request newRequest = this.requestRepository.findByRequestid(request.getRequestid());
+		request.setDateissued(newRequest.getDateissued());
+		request.setDateaccepted(null);
+		request.setBreederid(null);
+		this.requestRepository.save(request);
+	}
 
 }
