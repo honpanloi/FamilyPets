@@ -86,7 +86,7 @@ public class RequestController {
 	
 	@RequestMapping(value = "/image/upload", method = RequestMethod.POST, produces = { "application/json","application/xml" })
 	public ImageDto uploadImage(@RequestParam(value = "imageFile", required = true) MultipartFile image) {
-
+		System.out.println("upload endpoint");
 		String bucketName = "joreceipt";
 
 		String imageUrl = "";
