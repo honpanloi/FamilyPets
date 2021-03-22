@@ -19,7 +19,10 @@ import com.app.service.PersonService;
 
 @RestController(value = "PersonController")
 @RequestMapping(path = "/person")
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {"http://honpan.images.bucket.s3-website.us-east-2.amazonaws.com",
+						"http://localhost:4200",
+						"http://p2pets.s3-website-us-west-1.amazonaws.com"
+						})
 public class PersonController {
 
 	private PersonService personService;	
