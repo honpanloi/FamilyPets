@@ -32,6 +32,7 @@ public class MessageController {
 	
 	@PostMapping(path = "/create/{requestid}/{personid}/{content}")
 	public void createMessage(@PathVariable int requestid, @PathVariable int personid, @PathVariable String content) {
+		System.out.println(requestid);
 		this.messageservice.createMessage(requestid, personid, content);
 	}
 	
