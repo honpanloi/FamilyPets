@@ -14,7 +14,7 @@
 -Buyers and breeders can view and update their own information.
 -A buyer can submit a breeding request.
 -A buyer can view pending requests and update the animal or breed.
-A buyer or breeder can view accepted requests and message each other regarding certain requests.
+-A buyer or breeder can view accepted requests and message each other regarding certain requests.
 -Breeders can view pending requests and accept a request.
 
 
