@@ -17,6 +17,7 @@
 A buyer or breeder can view accepted requests and message each other regarding certain requests.
 -Breeders can view pending requests and accept a request.
 
+
 ## Environment / Technologies
 Java, Spring Boot, Spring Data, Spring MVC, Maven, JUnit4, Log4J, AWS RDS, Angular 4, Karma, Jasmine, Protractor, HTML, CSS, JavaScript, TypeScript, Git
 
