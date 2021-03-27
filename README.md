@@ -13,7 +13,8 @@ Family-Pets is a web application that brings pet buyers and pet breeders togethe
 - Michael Ball
 - Rico-Kali Hayes
 
-## My roles in this project
+## My roles in this project 
+All contributors are involed with basically everything. We spread the work almost evenly.
 - Project Management
 - Database design and construct 
 - Version control
