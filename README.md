@@ -14,7 +14,7 @@ Our goal is to disrupt the pet farming bussiness. Our research shows concerns of
 - Rico-Kali Hayes
 
 ## My roles in this project 
-All contributors are involed with basically everything. We spread the work almost evenly. A lot of work were done through peer programming.
+All contributors are involed with basically everything. We spread the work almost evenly. Also, a lot of work were done through peer programming.
 - Project Management
 - Database design and construct 
 - Version control
