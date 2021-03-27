@@ -99,7 +99,7 @@ All contributors are involed with basically everything. We spread the work almos
 27. You should be able to login with 123@gmail.com and password 123.
  
 ## Usage
-* After you successfully have the project running on your browser, it should be very intuitive on how to use the app. You can login as an buyer to file breeding requests. You can also login as a breeder to breeding request from other buyers.
+* After you successfully have the project running on your browser, it should be very intuitive on how to use the app. You can login as an buyer to file breeding requests. You can also login as a breeder to accept breeding requests from other buyers.
 
 ## License
 * Open-source. For demo purposes. Not for commercial use.
