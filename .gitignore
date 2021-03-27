@@ -31,5 +31,10 @@ MANIFEST.MF
 pom.properties
 .factorypath
 .settings/org.eclipse.jdt.apt.core.prefs
+<<<<<<< HEAD
 application.properties
+=======
+src/main/resources/application.properties
+target/classes/application.properties
+>>>>>>> ba95b834c9f0f10ab0171cff6237b4a4c14483cd
 
