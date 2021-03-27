@@ -15,7 +15,7 @@ import com.app.service.LoginService;
 
 @RestController(value = "LoginController")
 @RequestMapping(path = "/")
-@CrossOrigin(origins = {"http://honpan.images.bucket.s3-website.us-east-2.amazonaws.com"})
+@CrossOrigin(origins = {"http://localhost:4200"})
 public class LoginController {
 	
 	private LoginService loginService;

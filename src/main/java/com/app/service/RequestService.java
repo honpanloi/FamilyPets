@@ -1,16 +1,10 @@
 package com.app.service;
 
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.app.model.Person;
 import com.app.model.Request;
 import com.app.repository.RequestRepository;
 
