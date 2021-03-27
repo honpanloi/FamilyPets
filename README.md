@@ -64,6 +64,8 @@ All contributors are involed with basically everything. We spread the work almos
 * AJAX
 * Tomcat 9.0.43
 * Angular 11
+* Node.js 6.14.11
+* Visual Studio Code
 * Spring Framework / Spring boot
 * Language used - Java 8, SQL, XML, JavaScript, HTML, CSS, TypeScript
 
