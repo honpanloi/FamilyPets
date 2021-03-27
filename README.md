@@ -51,7 +51,7 @@ All contributors are involed with basically everything. We spread the work almos
 
 ## Technologies Used / Environment
 * Log4j - 1.2.17
-* Junit - 5.4.2
+* JUnit - 5.4.2
 * Mokito - 3.7.7
 * Java - 8
 * Spring Tool Suite - 4.8.1.Release
